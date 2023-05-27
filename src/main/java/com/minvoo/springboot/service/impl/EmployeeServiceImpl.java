@@ -7,6 +7,7 @@ import com.minvoo.springboot.repository.EmployeeRepository;
 import com.minvoo.springboot.service.EmployeeService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -56,7 +57,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public void deleteEmployee(String id) {
-        employeeRepository.deleteById(id);
+    public Mono<Void> deleteEmployee(String id) {
+        return employeeRepository.deleteById(id);
     }
 }
