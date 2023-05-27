@@ -17,7 +17,7 @@ public class EmployeeController {
 
     //reactive save employee restapi
     @PostMapping
-    @ResponseStatus(value = HttpStatus.OK)
+    @ResponseStatus(value = HttpStatus.CREATED)
     public Mono<EmployeeDto> saveEmployee(@RequestBody EmployeeDto employeeDto) {
         return employeeService.saveEmployee(employeeDto);
     }
